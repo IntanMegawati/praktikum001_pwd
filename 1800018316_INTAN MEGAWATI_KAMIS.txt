@@ -1,0 +1,66 @@
+Microsoft Windows [Version 10.0.19043.1237]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Intan>cd..
+
+C:\Users>cd..
+
+C:\>D:
+
+D:\>cd XAMPP
+
+D:\XAMPP>cd mysql
+
+D:\XAMPP\mysql>cd bin
+
+D:\XAMPP\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 40
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [akademikk]> create database akademikk;
+Query OK, 1 row affected (0.005 sec)
+MariaDB [(none)]> use akademikk;
+Database changed
+MariaDB [akademikk]> create table mahasiswa (nim varchar(5) NOT NULL PRIMARY KEY,nama varchar(50) NOT NULL,jkel varchar(1) NOT NULL,alamat text,tgllhr date);
+Query OK, 0 rows affected (0.065 sec)
+
+MariaDB [akademikk]> desc mahasiswa
+    -> ;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| nim    | varchar(5)  | NO   | PRI | NULL    |       |
+| nama   | varchar(50) | NO   |     | NULL    |       |
+| jkel   | varchar(1)  | NO   |     | NULL    |       |
+| alamat | text        | YES  |     | NULL    |       |
+| tgllhr | date        | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.030 sec)
+
+MariaDB [akademikk]> INSERT INTO mahasiswa VALUES('MHS01','Siti Aminah',’P’,'SOLO','1995-10-01');
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [akademikk]> INSERT INTO mahasiswa VALUES('MHS02','Rita',‘P’,'SOLO','1999-01-01');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [akademikk]> INSERT INTO mahasiswa VALUES('MHS03','Amirudin',’L’,'SEMARANG','1998-08-11');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [akademikk]> INSERT INTO mahasiswa VALUES('MHS04','Siti Maryam',’P’,'JAKARTA','1995-04-15');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [akademikk]> SELECT*FROM mahasiswa WHERE alamat='SOLO';
++-------+-------------+------+--------+------------+
+| nim   | nama        | jkel | alamat | tgllhr     |
++-------+-------------+------+--------+------------+
+| MHS01 | Siti Aminah | P    | SOLO   | 1995-10-01 |
+| MHS02 | Rita        | P    | SOLO   | 1999-01-01 |
++-------+-------------+------+--------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [akademikk]> 
